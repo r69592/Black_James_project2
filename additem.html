@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<!--
+VFW Project: Chore List
+       Name: James Black
+       Term: 1305
+-->
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="First to do app." />
+    <meta name="keywords" content="to do, web app, mobile development" />
+    <meta name="robots" content="index, follow" />
+    <meta name="viewport" content="user-scalable=no, width=device-width" /> 
+    <title>Daily Chores</title>
+</head>
+<body>
+<h1>Chore List </h1>
+<form action="#" method="post">
+    <fieldset>
+        <legend>Chore Information</legend>
+        <ul>
+            <li><label for="chore">Description</label><input type="text" id="chore" /></li>
+        </ul>
+        <ul>
+            <li>
+               <label for="type">Type</label>
+               <select id="type">
+                <option value="laundry">laundry</option>
+                <option value="kitchen">kitchen</option>
+                <option value="bathroom">bathroom</option>
+                <option value="living room">living room</option>
+                <option value="beddroom">beddroom</option>
+                <option value="yard">yard</option>
+               </select>
+            </li>
+        </ul>
+    </fieldset>
+    <fieldset>
+        <legend>Questions</legend>
+        <ul>
+            <li>Difficulty
+                <ul>
+                    <li><input type="radio" checked value="Easy" id="easy" name="difficulty" /><label for="easy">Easy</label></li>
+                    <li><input type="radio" value="Medium" id="medium" name="difficulty" /><label for="medium">Medium</label></li>
+                    <li><input type="radio" value="Hard" id="hard" name="difficulty" /><label for="hard">hard</label></li>
+                </ul>
+            </li>
+        </ul>
+        <ul>
+            <li>Importance 
+                <ul>
+                    <li><input type="range" value="0 - 10" id="range" /></li>
+                </ul>
+            </li>
+        </ul>
+        <ul>
+        <li>Completion Date
+            <ul>
+                <li><input type="date" id="cdate" /></li>
+            </ul>
+        </li>
+            <ul>
+                <li><label for="notes">Please enter notes here.</label><textarea id="notes"></textarea></li>
+                <li><input type="hidden" value="true" /></li>
+            </ul>    
+        </ul>
+    </fieldset>
+    <input type="submit" value="Save"
+</form>
+<br><a href="#" />clear storage data</a>
+
+</body>
+</html>
