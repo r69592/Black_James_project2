@@ -8,11 +8,21 @@ body {
     
 }
 h1 {
-    margin:  10px 20px;
-    border:  1px solid #000;
-    padding:  10px;
-    background-color: gray;
-    width:  50%;
+    background-repeat: true;
+    font-family: Garamond, sans-serif,serif;
+    text-decoration: none;
+    text-align: center;
+    text-shadow: grey;
+    font-size: 40px;
+    color: white;
+    padding:  20px;
+    height: 20px;
+    background-color: #333;
+    text-transform: none;
+    word-spacing: 5px;
+    letter-spacing: 2px;
+    line-height: 2px;
+    
 }
 a {
     color: blue;
@@ -30,10 +40,6 @@ p {
 }
 legend {
     font-family: sans-serif;
-}
-form input {
-    padding: 10 10 10 10;
-    color: black;
 }
 
 .even{background: #fff; }
