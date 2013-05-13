@@ -8,22 +8,15 @@ Project 2
 window.addEventListener("DOMContentLoaded", function(){
    
 // My get id function.
-    function $(x) {
+    function ge(x) {
          var elementId = document.getElementById(x);
          return elementId;
     }
          
-    // Clear storage.
-    var clearStorageLink   = $("clearStorage");
-    clearStorageLink.addEventListener("click", clearStorage);
-         
-    var clearStorage = function() {
-             
-    }
 // Make Select Field With js.
     function makeField() {
-        var formTag = document.getElementByTagName("form"), // Array.
-            selectLi = $("select"),
+        var formTag = ge("form"), 
+            selectLi = ge("select"),
             makeSelect = document.createElement("select");
             makeSelect.setAttribute("id", "groups");
         for(var i=0, j=myTypeArray.length; i<j; i++){
@@ -44,7 +37,7 @@ window.addEventListener("DOMContentLoaded", function(){
         var makeList = document.createElement("ul");
         makeDiv.appendChild(makeList);
         document.body.appendChild(makeDiv);
-        $("items").style.display = "block";
+        ge("items").style.display = "block";
         for (var i=0, len=localStorage.length; i<len; i++) {
             var makeLi = document.createElement("li");
             makeList.appendChild(makeLi);
@@ -61,29 +54,29 @@ window.addEventListener("DOMContentLoaded", function(){
             }
         }
     }
-            var showStorage = $("displayData");
-            showStorage.addEventListener("click", showData);
-        
+           
+// Toggle on/off function.        
     function toggleControls(n) {
         switch(n) {
             case "on":
-                $("choreForm").style.display = "none";
-                $("clearStorage").style.display = "inline";
-                $("displayData").style.display = "none";
-                $("addNewChore").style.display = "inline";
+                ge("choreForm").style.display = "none";
+                ge("clearStorage").style.display = "inline";
+                ge("displayData").style.display = "none";
+                ge("addNewChore").style.display = "inline";
                 break;
             case "off":
-                $("choreForm").style.display = "block";
-                $("clearStorage").style.display = "inline";
-                $("displayData").style.display = "inline";
-                $("addNewChore").style.display = "none";
-                $("items").style.display = "none";
+                ge("choreForm").style.display = "block";
+                ge("clearStorage").style.display = "inline";
+                ge("displayData").style.display = "inline";
+                ge("addNewChore").style.display = "none";
+                ge("items").style.display = "none";
                 break;
             default:
             return false;
         }
     }
-         
+
+// Get radio answer function.         
         function getSelectedRadio() {
             var radios = document.forms[0].difficulty
             for(var i=0; i < radios.length; i++) {
@@ -94,24 +87,37 @@ window.addEventListener("DOMContentLoaded", function(){
         }
         
 // Save data
-        var saveButton     = $("saveButton");
-        saveButton.addEventListener("click", saveData);
+        
         function saveData() {
         var id             = Math.floor(Math.random()*1000001);
         getSelectedRadio();
         var item           = {}
-            item.chore     = ["Chore", $("chore").value];
-            //item.type      = ["Type", $("type").value];
+            item.chore     = ["Chore", ge("chore").value];
+            item.groups    = ["Groups", ge("groups").value];
             item.difficulty= ["difficulty", difficultyValue];
-            item.range     = ["Range", $("range").value];
-            item.choreDate = ["Chore Date", $("choreDate").value];
-            item.notes     = ["Notes", $("notes").value];
+            item.range     = ["Range", ge("range").value];
+            item.choreDate = ["Chore Date", ge("choreDate").value];
+            item.notes     = ["Notes", ge("notes").value];
             localStorage.setItem(id, JSON.stringify(item));
             alert("Chore Saved!");
     }
 
-        
-        
+    
+// Clear storage.
+    var clearStorage = function() {
+        if (localStorage.length === 0){
+            alert("Storage is empty.");
+    }   else {
+            localStorage.clear();
+            alert("All chores have been deleted!");
+            window.location.reload();
+            return false;
+    }
+    }
+    
+   
+         
+    
     
 // My array for dropdown menu.
         var myTypeArray = ["--Choose A Location--", "laundry", "kitchen", "bathroom", "living room", "beddroom", "yard"],
@@ -119,8 +125,13 @@ window.addEventListener("DOMContentLoaded", function(){
         ;
         makeField();
     
+// Set link & Submit.    
+    var showStorage = ge("displayData");
+    showStorage.addEventListener("click", showData);
+    var clearStorageLink = ge("clearStorage");
+    clearStorageLink.addEventListener("click", clearStorage);
+    var saveButton     = ge("saveButton");
+    saveButton.addEventListener("click", saveData);
+
     
-
-
-
 });

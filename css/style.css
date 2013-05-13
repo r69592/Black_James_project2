@@ -14,10 +14,10 @@ h1 {
     text-align: center;
     text-shadow: grey;
     font-size: 40px;
-    color: white;
+    color: black;
     padding:  20px;
     height: 20px;
-    background-color: #333;
+    background-color: none;
     text-transform: none;
     word-spacing: 5px;
     letter-spacing: 2px;
