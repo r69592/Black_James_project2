@@ -18,7 +18,7 @@ window.addEventListener("DOMContentLoaded", function(){
         var formTag = ge("form"), 
             selectLi = ge("select"),
             makeSelect = document.createElement("select");
-            makeSelect.setAttribute("id", "groups");
+            makeSelect.setAttribute("id", "area");
         for(var i=0, j=myTypeArray.length; i<j; i++){
             var makeOption = document.createElement("option");
             var optText = myTypeArray[i];
@@ -89,15 +89,15 @@ window.addEventListener("DOMContentLoaded", function(){
 // Save data
         
         function saveData() {
-        var id             = Math.floor(Math.random()*1000001);
+        var id              = Math.floor(Math.random()*1000001);
         getSelectedRadio();
-        var item           = {}
-            item.chore     = ["Chore", ge("chore").value];
-            item.groups    = ["Groups", ge("groups").value];
-            item.difficulty= ["difficulty", difficultyValue];
-            item.range     = ["Range", ge("range").value];
-            item.choreDate = ["Chore Date", ge("choreDate").value];
-            item.notes     = ["Notes", ge("notes").value];
+        var item            = {}
+            item.chore      = ["Chore", ge("chore").value];
+            item.area       = ["Chore Location", ge("area").value];
+            item.difficulty = ["difficulty", difficultyValue];
+            item.importance = ["importance", ge("importance").value];
+            item.choreDate  = ["Chore Date", ge("choreDate").value];
+            item.notes      = ["Notes", ge("notes").value];
             localStorage.setItem(id, JSON.stringify(item));
             alert("Chore Saved!");
     }
@@ -120,10 +120,10 @@ window.addEventListener("DOMContentLoaded", function(){
     
     
 // My array for dropdown menu.
-        var myTypeArray = ["--Choose A Location--", "laundry", "kitchen", "bathroom", "living room", "beddroom", "yard"],
+    var myTypeArray = ["--Choose A Location--", "laundry", "kitchen", "bathroom", "living room", "beddroom", "yard"],
         difficultyValue
         ;
-        makeField();
+    makeField();
     
 // Set link & Submit.    
     var showStorage = ge("displayData");
